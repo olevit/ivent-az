@@ -24,6 +24,7 @@ export default function EventDetails({ route, navigation }){
      const poster = event.eventPoster;
      const time = event.eventDate?.toDate().toLocaleTimeString();
      const date = event.eventDate?.toDate().toDateString();
+     const dateCalendar = event.eventDate?.toDate().toLocaleString();
      const name = event.eventName;
      const price = event.eventPrice;
      const organizer = event.eventOrganizer;
@@ -39,7 +40,6 @@ export default function EventDetails({ route, navigation }){
      const showContainerSponsors = !!sponsors[0] || !!sponsors[1] || !!sponsors[2] || !!sponsors[3]
         || !!sponsors[4];
 
-    //console.log(Dimensions.get('window').width, Dimensions.get('window').height) https://expo.dev/@olevist/ivent-az
      return(
          <View style={styles.container}>
             <ImageBackground
@@ -59,6 +59,7 @@ export default function EventDetails({ route, navigation }){
                     <ScrollView style={styles.containerScroll}>
                         <ContainerDescription description={description}/>
                         <ContainerDateLocal time={time} date={date} venue={venue}
+                            dateCalendar={dateCalendar}
                             showButtonSeeDetails={showButtonSeeDetails}
                             eventLink={eventLink}/>
                         <ContainerOrganizer showContainerOrganizer={showContainerOrganizer}

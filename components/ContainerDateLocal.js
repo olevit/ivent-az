@@ -11,14 +11,16 @@ const ContainerDateLocal = props => {
     const time = props.time;
     const venue = props.venue;
     const date = props.date;
+    const dateCalendar = props.dateCalendar;
     const showButtonSeeDetails = props.showButtonSeeDetails;
-    const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=', web: 'https://www.google.com/maps/place/' });
+    const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=',
+        web: 'https://www.google.de/maps/@' });
     const latLng = `${venue?.coordinate?.latitude},${venue?.coordinate?.longitude}`;
     const label = venue?.venueName;
     const url = Platform.select({
       ios: `${scheme}${label}@${latLng}`,
       android: `${scheme}${latLng}(${label})`,
-      web: `${scheme}${label}/@${latLng},18z`
+      web: `${scheme}${latLng}?q=${label}`
     });
 
     const openCalendar = () => {
@@ -26,8 +28,13 @@ const ContainerDateLocal = props => {
           Linking.openURL('calshow:');
         } else if(Platform.OS === 'android') {
           Linking.openURL('content://com.android.calendar/time/');
-        } else {
-          Linking.openURL('https://calendar.google.com/calendar/');
+        }
+         else {
+          Linking.openURL('https://calendar.google.com/calendar/u/0/r/eventedit?overrides=%5Bnull%2Cnull%2C%22'
+            + dateCalendar?.slice(6,10) + dateCalendar?.slice(3,5) + dateCalendar?.slice(0,2) + 'T'
+            + time?.slice(0,2) + time?.slice(3,5) + '00%22%2C%22' + dateCalendar?.slice(6,10)
+            + dateCalendar?.slice(3,5) + dateCalendar?.slice(0,2) + 'T' + time?.slice(0,2) + time?.slice(3,5)
+            + '00%22%2C%22b2xldmlzdEBnbWFpbC5jb20%22%2Cnull%2Cnull%2C%5B%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5D%2Cnull%2C%5B%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5D%5D&tab=wc');
         }
     };
 

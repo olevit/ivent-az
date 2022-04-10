@@ -12,18 +12,18 @@ const SearchInput = props => {
     return (
          <View style={props.shadow ? styles.containerSearchInputShadow : styles.containerSearchInput}>
             <Image style={styles.imageSearch} source={require("../assets/icons/search.png")}/>
-                <TextInput
-                    style={styles.inputSearch}
-                    placeholder="Search Event"
-                    placeholderTextColor={Colors.grayLight}
-                    returnKeyType='search'
-                    value={searchPhrase}
-                    onChangeText={(text) => setSearchPhrase(text)}
-                    onSubmitEditing={()=> {
-                        props.navigation.navigate("Search",{searchText: searchPhrase});
-                        setSearchPhrase('');
-                    }}
-                />
+            <TextInput
+                style={styles.inputSearch}
+                placeholder="Search Event"
+                placeholderTextColor={Colors.grayLight}
+                returnKeyType='search'
+                value={searchPhrase}
+                onChangeText={(text) => setSearchPhrase(text)}
+                onSubmitEditing={()=> {
+                    props.navigation.navigate("Search",{searchText: searchPhrase});
+                    setSearchPhrase('');
+                }}
+            />
             <TouchableOpacity style={styles.buttonFilter} onPress={props.openModal}>
                   <Image style={styles.imageFilter} source={require("../assets/icons/filter.png")}/>
             </TouchableOpacity>
@@ -59,11 +59,12 @@ const styles = StyleSheet.create({
         fontFamily: 'poppins',
         fontSize: 12,
         paddingRight: 10,
-        flex: 1,
+        flexGrow: 1,
         borderRightColor: Colors.grayLine,
         borderRightWidth: 1,
     },
     buttonFilter:{
+        flexShrink: 1,
         paddingLeft: 10,
         height:'100%',
         paddingRight: 16,

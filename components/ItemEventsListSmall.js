@@ -35,7 +35,7 @@ const ItemEventsListSmall = props => {
               <View style={styles.containerRight}>
                   <View style={styles.containerPrice}>
                       <Text style={styles.textEventName} numberOfLines={1}>{name}</Text>
-                      <Text style={styles.textEventPrice} numberOfLines={1}>{price ? price : 'FREE'}</Text>
+                      <Text style={styles.textEventPrice} numberOfLines={1}>{!!price ? price : 'FREE'}</Text>
                   </View>
                   <View style={styles.containerDate}>
                       <Image style={styles.imageDate} source={require("../assets/icons/calendar.png")} />

@@ -8,11 +8,10 @@ import db from '../firebase/config';
 const ShareButton = props => {
     const eventLink = props.eventLink;
     const eventName = props.eventName;
-    const [notification, setNotification] = useState([]);
-    //const eventLink = props.eventLink;
-    //const eventName = props.eventName;
+    //const [notification, setNotification] = useState([]);
 
-    const getEventNotification = async () =>{
+
+    /*const getEventNotification = async () =>{
         await db
           .firestore()
           .collection('notification')
@@ -23,13 +22,12 @@ const ShareButton = props => {
 
     useEffect(()=> {
         getEventNotification();
-    },[]);
+    },[]);*/
 
     const onShare = async () => {
         try {
           const result = await Share.share({
-            message:`${notification[0]?.title}\n"${eventName}"\n${!!eventLink  ?
-             `${notification[0]?.text}\n${eventLink}` : ''}`,
+            message: `${eventName}\n`+ 'https://ivent-az-olevit.vercel.app/',
           });
           if (result.action === Share.sharedAction) {
             if (result.activityType) {} else {}

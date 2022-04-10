@@ -1,4 +1,4 @@
-expo build:web --helpconst createExpoWebpackConfigAsync = require("@expo/webpack-config");
+const createExpoWebpackConfigAsync = require("@expo/webpack-config");
 const path = require("path");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
