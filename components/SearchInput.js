@@ -62,9 +62,10 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         borderRightColor: Colors.grayLine,
         borderRightWidth: 1,
+        minWidth: 5,
     },
     buttonFilter:{
-        flexShrink: 1,
+        //flexShrink: 1,
         paddingLeft: 10,
         height:'100%',
         paddingRight: 16,

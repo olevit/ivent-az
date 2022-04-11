@@ -6,7 +6,7 @@ import Colors from '../constants/colors';
 import db from '../firebase/config';
 
 const ShareButton = props => {
-    const eventLink = props.eventLink;
+    //const eventLink = props.eventLink;
     const eventName = props.eventName;
     //const [notification, setNotification] = useState([]);
 

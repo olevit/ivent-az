@@ -24,7 +24,11 @@ export default function EventDetails({ route, navigation }){
      const poster = event.eventPoster;
      const time = event.eventDate?.toDate().toLocaleTimeString();
      const date = event.eventDate?.toDate().toDateString();
-     const dateCalendar = event.eventDate?.toDate().toLocaleString();
+     const dateCalendar = event.eventDate?.toDate();
+     //console.log(event.eventDate?.toDate().getDate())
+     //console.log(event.eventDate?.toDate().getMonth() + 1)
+     //console.log(event.eventDate?.toDate().getFullYear())
+
      const name = event.eventName;
      const price = event.eventPrice;
      const organizer = event.eventOrganizer;

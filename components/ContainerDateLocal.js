@@ -30,11 +30,7 @@ const ContainerDateLocal = props => {
           Linking.openURL('content://com.android.calendar/time/');
         }
          else {
-          Linking.openURL('https://calendar.google.com/calendar/u/0/r/eventedit?overrides=%5Bnull%2Cnull%2C%22'
-            + dateCalendar?.slice(6,10) + dateCalendar?.slice(3,5) + dateCalendar?.slice(0,2) + 'T'
-            + time?.slice(0,2) + time?.slice(3,5) + '00%22%2C%22' + dateCalendar?.slice(6,10)
-            + dateCalendar?.slice(3,5) + dateCalendar?.slice(0,2) + 'T' + time?.slice(0,2) + time?.slice(3,5)
-            + '00%22%2C%22b2xldmlzdEBnbWFpbC5jb20%22%2Cnull%2Cnull%2C%5B%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5D%2Cnull%2C%5B%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5D%5D&tab=wc');
+          Linking.openURL('https://calendar.google.com/calendar/u/0/r/day/' + `${dateCalendar.getFullYear()}/${dateCalendar.getMonth() + 1}/${dateCalendar.getDate()}?tab=cc`);
         }
     };
 
